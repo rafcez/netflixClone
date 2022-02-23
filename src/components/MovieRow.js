@@ -1,4 +1,4 @@
-import React, { useState} from 'react';
+import React, { useState } from 'react';
 import './MovieRow.css';
 import NavegateBeforeIcon from '@material-ui/icons/NavigateBefore';
 import NavegateNextIcon from '@material-ui/icons/NavigateNext';
@@ -6,18 +6,18 @@ import NavegateNextIcon from '@material-ui/icons/NavigateNext';
 export default ({ title, items }) => {
     const [scrollX, setScrollX] = useState(-400);
 
-    const handleLeftArrow = () =>{
+    const handleLeftArrow = () => {
         let x = scrollX + Math.round(window.innerWidth / 2);
-        if(x > 0){
+        if (x > 0) {
             x = 0
         }
         setScrollX(x);
     }
 
-    const handleRightArrow = () =>{
+    const handleRightArrow = () => {
         let x = scrollX - Math.round(window.innerWidth / 2);
         let listW = items.results.length * 150;
-        if((window.innerWidth - listW) > x ){
+        if ((window.innerWidth - listW) > x) {
             x = (window.innerWidth - listW) - 60;
         }
         setScrollX(x);
@@ -26,10 +26,10 @@ export default ({ title, items }) => {
         <div className='movieRow'>
             <h2>{title}</h2>
             <div className='movieRow-left' onClick={handleLeftArrow}>
-                <NavegateBeforeIcon style={{fontSize: 50}}/>
+                <NavegateBeforeIcon style={{ fontSize: 50 }} />
             </div>
             <div className='movieRow-right' onClick={handleRightArrow}>
-                <NavegateNextIcon style={{fontSize: 50}}/>
+                <NavegateNextIcon style={{ fontSize: 50 }} />
             </div>
             <div className='movieRow--listarea'>
                 <div className='movieRow--list' style={{
